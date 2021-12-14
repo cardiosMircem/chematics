@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "@login": {
+      "description": "Standard login",
+      "factory": "./login/index",
+      "schema":"./login/schema.json"
+    }
+  }
+}

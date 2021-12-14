@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "schematic-login",
+  "title": "Schematic login",
+  "type": "object",
+  "properties": {
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path to create the component.",
+      "visible": false
+    },
+    "backgroundColor": {
+      "type": "string",
+      "x-prompt": "What background color do you want?",
+      "default": "white"
+    }
+  }
+}
