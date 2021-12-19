@@ -1,19 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-interface <%= classify(name) %>ReqDto {
-  username: string;
-  password: string;
-}
-
+import { <%= classify(name) %>ReqDto } from './<%= dasherize(name) %>.interface';
+import { <%= classify(name) %>Service } from './<%= dasherize(name) %>.service';
 
 @Component({
   selector: 'app-<%= dasherize(name)%>',
-  templateUrl: '<%= dasherize(name) %>-list.component.html',
-  styleUrls: ['<%= dasherize(name) %>-list.component.scss']
+  templateUrl: '<%= dasherize(name) %>.component.html',
+  styleUrls: ['<%= dasherize(name) %>.component.scss']
 })
 export class <%= classify(name)%>Component implements OnInit {
-
   loginForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private <%= dasherize(name) %>Service: <%= classify(name) %>Service) {}

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { <%= classify(name) %>Component } from './% dasherize(name) %>.component';
-import { <%= classify(name) %>ResetPasswordComponent } from '<% dasherize(name) %>-reset-password.component';
-import { <%= classify(name) %>NewPasswordComponent } from '<% dasherize(name) %>-new-password.component';
+import { <%= classify(name) %>Component } from './<%= dasherize(name) %>.component';
+import { <%= classify(name) %>ResetPasswordComponent } from './<%= dasherize(name) %>-reset-password/<%= dasherize(name) %>-reset-password.component';
+import { <%= classify(name) %>NewPasswordComponent } from './<%= dasherize(name) %>-new-password/<%= dasherize(name) %>-new-password.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -19,7 +19,6 @@ const routes: Routes = [
   { path: 'reset-password', component: <%= classify(name) %>ResetPasswordComponent },
   { path: 'password-reset/:token', component: <%= classify(name) %>NewPasswordComponent }
 ];
-
 
 @NgModule({
   declarations: [<%= classify(name) %>Component, <%= classify(name) %>ResetPasswordComponent, <%= classify(name) %>NewPasswordComponent],
