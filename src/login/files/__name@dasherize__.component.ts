@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 interface <%= classify(name) %>ReqDto {
@@ -12,7 +12,7 @@ interface <%= classify(name) %>ReqDto {
   templateUrl: '<%= dasherize(name) %>-list.component.html',
   styleUrls: ['<%= dasherize(name) %>-list.component.scss']
 })
-export class <%= classify(name)%>Component implements OnInit, OnDestroy {
+export class <%= classify(name)%>Component implements OnInit {
 
   loginForm: FormGroup;
 
@@ -26,14 +26,13 @@ export class <%= classify(name)%>Component implements OnInit, OnDestroy {
   }
 
   login(formValue: <%= classify(name) %>ReqDto): void {
-    this.<%= dasherize(name) %>Service.login(formValue).subscribe(() => {
-      alert.apply('login successful')
-    }, () => {
+    this.<%= dasherize(name) %>Service.login(formValue).subscribe(
       () => {
-        alert.apply('error during login')
+        alert.apply('login successful');
+      },
+      () => {
+        alert.apply('error during login');
       }
-    });
-  } // login
-
-
+    );
+  }
 }

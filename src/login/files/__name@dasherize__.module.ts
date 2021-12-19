@@ -14,7 +14,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 
-
 const routes: Routes = [
   { path: '', component: <%= classify(name) %>Component },
   { path: 'reset-password', component: <%= classify(name) %>ResetPasswordComponent },
