@@ -21,6 +21,17 @@ import { MenuOptions } from './schema';
 import { getWorkspace } from '@schematics/angular/utility/config';
 import { findModuleFromOptions } from 'schematics-utilities';
 
+function takeName(path: string) {
+  const pathArr = path.split('/');
+  return pathArr[pathArr.length - 1];
+}
+
+function takeRealPath(path: string) {
+  const pathArr = path.split('/');
+  pathArr.splice(pathArr.length - 1, 1);
+  return pathArr.join('/');
+}
+
 /**
  * setting the folder, name, and take the configuration object
  * @param options options passed by the developer
@@ -40,10 +51,10 @@ function setupOptions(options: MenuOptions, host: Tree): void {
     throw new SchematicsException(`--path variable is mandatory for generating the login page`);
   }
 
-  // check if this path exists or not
-
   // retrieve the name from the path
-  options.name = 'login';
+  options.name = takeName(options.path);
+  // real path present in the application
+  options.path = takeRealPath(options.path);
 } // setupOptions
 
 /**

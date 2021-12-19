@@ -1,0 +1,12 @@
+:host {
+  .password-forgotten {
+    font-size: 14px;
+    text-decoration: none;
+    color: gray;
+  }
+
+  .password-forgotten:hover {
+    color: purple;
+    text-decoration: underline;
+  }
+}
