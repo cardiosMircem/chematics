@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { <%= classify(name) %>ReqDto } from './<%= dasherize(name) %>.interface';
+import { <%= classify(name) %>ReqDto } from './<%= dasherize(name) %>-req.dto';
+import { NewPasswordReqDto } from './new-password-req.dto';
 
 @Injectable({ providedIn: 'root' })
 export class <%= classify(name) %>Service {
@@ -28,6 +29,18 @@ export class <%= classify(name) %>Service {
   sendResetEmailPassword(mail: string): Observable<boolean> {
     return this.http
       .post<boolean>(`${this.baseUrl}/reset-password`, { mail })
+      .pipe(
+        switchMap(() => {
+          return of(true);
+        })
+      );
+  }
+
+  postNewPassword(newPasswordFG: NewPasswordReqDto): Observable<boolean> {
+    return this.http
+      .post<boolean>(`${this.baseUrl}/reset-password`, {
+        newPassword: newPasswordFG.newPassword
+      })
       .pipe(
         switchMap(() => {
           return of(true);

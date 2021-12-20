@@ -21,7 +21,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [<%= classify(name) %>Component, <%= classify(name) %>ResetPasswordComponent, <%= classify(name) %>NewPasswordComponent],
+  declarations: [
+    <%= classify(name) %>Component,
+    <%= classify(name) %>ResetPasswordComponent,
+    <%= classify(name) %>NewPasswordComponent
+  ],
   imports: [
     RouterModule.forChild(routes),
     TranslateModule.forChild(),

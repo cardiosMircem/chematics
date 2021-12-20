@@ -1,6 +1,5 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
-// tslint:disable-next-line: variable-name
 export const PasswordStrengthValidator = (control: AbstractControl): ValidationErrors | null => {
   const value: string = control.value || '';
 
