@@ -11,7 +11,7 @@ import { <%= classify(name) %>Service } from './<%= dasherize(name) %>.service';
 export class <%= classify(name)%>Component implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private <%= dasherize(name) %>Service: <%= classify(name) %>Service) {}
+  constructor(private formBuilder: FormBuilder, private <%= camelize(name) %>Service: <%= classify(name) %>Service) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -21,7 +21,7 @@ export class <%= classify(name)%>Component implements OnInit {
   }
 
   login(formValue: <%= classify(name) %>ReqDto): void {
-    this.<%= dasherize(name) %>Service.login(formValue).subscribe(
+    this.<%= camelize(name) %>Service.login(formValue).subscribe(
       () => {
         alert.apply('login successful');
       },

@@ -16,7 +16,6 @@ export class <%= classify(name) %>Service {
    * @return true if all is good
    */
   login(credentials: <%= classify(name) %>ReqDto): Observable<boolean> {
-    // credentials.password = btoa(credentials.password);
     return this.http.post<boolean>(`${this.baseUrl}/login`, credentials).pipe(
       switchMap((response: any) => {
         localStorage.setItem('user', JSON.stringify(response.user));
@@ -24,5 +23,15 @@ export class <%= classify(name) %>Service {
         return of(true);
       })
     );
+  }
+
+  sendResetEmailPassword(mail: string): Observable<boolean> {
+    return this.http
+      .post<boolean>(`${this.baseUrl}/reset-password`, { mail })
+      .pipe(
+        switchMap(() => {
+          return of(true);
+        })
+      );
   }
 }

@@ -1,72 +1,71 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
-import { NavigationService } from 'src/@template/services/navigation.service';
 import { PasswordStrengthValidator } from './password-strength.validators';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
+import { <%= classify(name) %>Service } from '../<%= dasherize(name) %>.service';
+
 
 @Component({
-  selector: 'app-new-password',
-  templateUrl: './new-password.component.html',
-  styleUrls: ['./new-password.component.scss']
+  selector: 'app-<%= dasherize(name) %>-new-password',
+  templateUrl: './<%= dasherize(name) %>-new-password.component.html'
 })
 export class <%= classify(name) %>NewPasswordComponent implements OnInit, OnDestroy {
-  newPasswordFG = new FormGroup({});
+  // get repeatedPasswordControl(): FormControl {
+  //   return this.newPasswordFG.get('repeatedPassword') as FormControl;
+  // } 
 
-  newPasswordFC: FormControl;
+  // get newPasswordControl(): FormControl {
+    // return (this.newPasswordFG.get('newPassword')) as FormControl;
+  // }
 
-  repeatedPasswordFC: FormControl;
+  newPasswordFG = this.formBuilder.group({
+    newPassword: [ 
+      null, 
+      [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(50),
+        PasswordStrengthValidator
+      ]
+    ],
+    repeatedPassword: [ null, [Validators.required]]
+  });
 
   unsub$ = new Subject();
 
   constructor(
     private authenticationService: AuthenticationService,
-    private navigation: NavigationService,
+    private formBuilder: FormBuilder,
+    private <%= camelize(name) %>Service: <%= classify(name) %>Service,
     private router: Router
   ) {
-    this.navigation.navigationSettings$.next({
-      toolbar: false,
-      sidemenu: false,
-      sidefilter: false,
-      searchbar: false
-    });
   }
 
   ngOnInit(): void {
-    this.newPasswordFC = new FormControl(null, [
-      Validators.required,
-      Validators.minLength(8),
-      Validators.maxLength(50),
-      PasswordStrengthValidator
-    ]);
-    this.repeatedPasswordFC = new FormControl(null, Validators.required);
-    this.newPasswordFG.addControl('newPassword', this.newPasswordFC);
-    this.newPasswordFG.addControl('repeatedPassword', this.repeatedPasswordFC);
-
     // mismatch validation between the 2 forms
-    this.repeatedPasswordFC.valueChanges
+    this.repeatedPasswordControl.valueChanges
       .pipe(distinctUntilChanged(), takeUntil(this.unsub$))
       .subscribe((repPwd: string) => {
-        if (repPwd !== this.newPasswordFC.value) {
-          this.repeatedPasswordFC.setErrors({ mismatch: true });
+        if (repPwd !== this.newPasswordControl.value) {
+          this.repeatedPasswordControl.setErrors({ mismatch: true });
         }
       });
   }
 
   newPasswordHandler(): void {
-    this.authenticationService
-      // eslint-disable-next-line no-restricted-globals
-      .postNewPwd(this.newPasswordFG.getRawValue(), location.pathname) // TODO: this function shoul be done better
+    this.<%= camelize(name) %>Service
+      .postNewPwd(this.newPasswordFG.getRawValue(), location.pathname) 
       .subscribe(() => {
         // with all successfull, redirect to login
         this.router.navigate(['login']);
       });
-  } // newPasswordHandler
-
+  }
+  
   ngOnDestroy(): void {
     this.unsub$.next();
     this.unsub$.complete();
-  } // ngOnDestroy
+  }
 }

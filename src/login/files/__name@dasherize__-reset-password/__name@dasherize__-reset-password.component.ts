@@ -1,48 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { TranslateService } from '@ngx-translate/core';
-import { NavigationService } from 'src/@template/services/navigation.service';
-import { AuthenticationService } from 'src/app/shared/services/authentication.service';
-import { SnackBarService } from 'src/app/shared/services/snackbar.service';
+import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { <%= classify(name) %>Service } from '../<%= dasherize(name) %>.service';
+
 
 @Component({
-  selector: 'app-reset-password-mail',
-  templateUrl: './reset-password-mail.component.html',
-  styleUrls: ['./reset-password-mail.component.scss']
+  selector: 'app-<%= dasherize(name) %>-reset-password',
+  templateUrl: './<%= dasherize(name) %>-reset-password.component.html'
 })
-export class <%= classify(name) %>ResetPasswordComponent implements OnInit {
-  mailFC: FormControl;
+export class <%= classify(name) %>ResetPasswordComponent {
+  mail = this.formBuilder.control(null, [Validators.email, Validators.required]);
 
-  constructor(
-    private authService: AuthenticationService,
-    private navigation: NavigationService,
-    private snackBar: SnackBarService,
-    private translateService: TranslateService
-  ) {
-    this.navigation.navigationSettings$.next({
-      toolbar: false,
-      sidemenu: false,
-      sidefilter: false,
-      searchbar: false
-    });
-  }
-
-  ngOnInit(): void {
-    this.mailFC = new FormControl(null, [Validators.email, Validators.required]);
-  }
+  constructor(private formBuilder: FormBuilder, private <%= camelize(name) %>Service: <%= classify(name) %>Service) {}
 
   /**
    * when this http call subscribes the user should receive an email
-   * with the link to click for resetting the password
+   * for resetting the password
    */
   mailHandler(): void {
-    this.authService.postEmailResetPwd(this.mailFC.value).subscribe(() => {
-      this.snackBar.display(
-        this.translateService.instant('login.emailSentTitle'),
-        this.translateService.instant('login.emailSentText'),
-        'success',
-        null
-      );
+    this.<%= camelize(name) %>Service.sendResetEmailPassword(this.mail.value).subscribe(() => {
+      alert.apply('mail has been sent');
     });
   }
 }
