@@ -55,6 +55,9 @@ export class <%= classify(name) %>NewPasswordComponent implements OnInit, OnDest
     this.<%= camelize(name) %>Service.postNewPassword(this.newPasswordFG.getRawValue()).subscribe(() => {
       // with all successfull, redirect to login
       this.router.navigate(['login']);
+    },
+    () => {
+      console.log('error when resetting password');
     });
   }
 

@@ -35,7 +35,7 @@
 
       <br />
 
-      <button mat-raised-button color="primary" [disabled]="loginForm.invalid">
+      <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="login(loginForm.getRawValue())">
         {{ 'login.login' | translate }}
       </button>
     </div>

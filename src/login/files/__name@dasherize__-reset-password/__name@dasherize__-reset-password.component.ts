@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { <%= classify(name) %>Service } from '../<%= dasherize(name) %>.service';
 
-
 @Component({
   selector: 'app-<%= dasherize(name) %>-reset-password',
   templateUrl: './<%= dasherize(name) %>-reset-password.component.html'
@@ -18,7 +17,10 @@ export class <%= classify(name) %>ResetPasswordComponent {
    */
   mailHandler(): void {
     this.<%= camelize(name) %>Service.sendResetEmailPassword(this.mail.value).subscribe(() => {
-      alert.apply('mail has been sent');
+      console.log('mail has been sent');
+    },
+    () => {
+      console.log('error when sending password');
     });
   }
 }

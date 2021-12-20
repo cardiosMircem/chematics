@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { <%= classify(name) %>ReqDto } from './<%= dasherize(name) %>.interface';
+import { <%= classify(name) %>ReqDto } from './<%= dasherize(name) %>-req.dto';
 import { <%= classify(name) %>Service } from './<%= dasherize(name) %>.service';
 
 @Component({
@@ -23,10 +23,10 @@ export class <%= classify(name)%>Component implements OnInit {
   login(formValue: <%= classify(name) %>ReqDto): void {
     this.<%= camelize(name) %>Service.login(formValue).subscribe(
       () => {
-        alert.apply('login successful');
+        console.log('login successful');
       },
       () => {
-        alert.apply('error during login');
+        console.log('error during login');
       }
     );
   }
