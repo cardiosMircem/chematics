@@ -9,4 +9,11 @@
     color: purple;
     text-decoration: underline;
   }
+
+  .container {
+    height: 100vh;
+    width: 100vw;
+    background-color: <%= backgroundColor %>;
+    color: <%= wordsColor %>;
+  }
 }

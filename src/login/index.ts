@@ -42,8 +42,6 @@ function setupOptions(options: MenuOptions, host: Tree): void {
   // that is calling the schematic
   const workspace = getWorkspace(host);
 
-  console.log(workspace);
-
   options.project = Object.keys(workspace.projects)[0];
 
   // if the --path is not provided when calling a schematic, throw an error

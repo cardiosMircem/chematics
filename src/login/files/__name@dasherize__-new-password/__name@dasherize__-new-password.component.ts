@@ -8,7 +8,8 @@ import { <%= classify(name) %>Service } from '../<%= dasherize(name) %>.service'
 
 @Component({
   selector: 'app-<%= dasherize(name) %>-new-password',
-  templateUrl: './<%= dasherize(name) %>-new-password.component.html'
+  templateUrl: './<%= dasherize(name) %>-new-password.component.html',
+  styleUrls: ['<%= dasherize(name) %>-new-password.component.scss']
 })
 export class <%= classify(name) %>NewPasswordComponent implements OnInit, OnDestroy {
   get repeatedPasswordControl(): FormControl {

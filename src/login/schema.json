@@ -14,6 +14,16 @@
       "type": "string",
       "x-prompt": "What background color do you want?",
       "default": "white"
+    },
+    "backgroundColorButton": {
+      "type": "string",
+      "x-prompt": "What background color do you want for the button?",
+      "default": "blue"
+    },
+    "wordsColor": {
+      "type": "string",
+      "x-prompt": "What color do you want for words?",
+      "default": "black"
     }
   }
 }

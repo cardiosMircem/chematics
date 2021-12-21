@@ -1,15 +1,15 @@
-<div fxLayout="row" fxLayoutAlign="center center">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>{{ 'login.title' | translate }}</mat-card-title>
-    </mat-card-header>
+<div class="container" fxLayout="row" fxLayoutAlign="center center">
+  <div>
+    <div>
+      <h2>{{ 'login.title' | translate }}</h2>
+    </div>
 
     <div
       name="loginForm"
       [formGroup]="loginForm"
       fxLayout="column">
 
-      <mat-form-field>
+      <mat-form-field [style]="{color: '<%= wordsColor %>'}">
         <mat-label>{{ 'login.username' | translate }}</mat-label>
         <input matInput formControlName="username" />
         <mat-icon matSuffix class="secondary-text">account_circle</mat-icon>
@@ -35,9 +35,14 @@
 
       <br />
 
-      <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="login(loginForm.getRawValue())">
+      <button 
+        mat-raised-button
+        [style]="{ backgroundColor: '<%= backgroundColorButton %>',
+        color: '<%= wordsColor %>'}"
+        [disabled]="loginForm.invalid"
+        (click)="login(loginForm.getRawValue())">
         {{ 'login.login' | translate }}
       </button>
     </div>
-  </mat-card>
+  </div>
 </div>
