@@ -12,7 +12,7 @@
       <mat-form-field [style]="{color: '<%= wordsColor %>'}">
         <mat-label>{{ 'login.username' | translate }}</mat-label>
         <input matInput formControlName="username" />
-        <mat-icon matSuffix class="secondary-text">account_circle</mat-icon>
+        <mat-icon matSuffix>person_icon</mat-icon>
         <mat-error *ngIf="loginForm.get('username').hasError('required')">
           {{ 'validator.errorMessage.required' | translate }}
         </mat-error>
@@ -20,8 +20,8 @@
 
       <mat-form-field>
         <mat-label>{{ 'login.password' | translate }}</mat-label>
-        <input matInput type="password" formControlName="password" />
-        <mat-icon matSuffix class="secondary-text">vpn_key</mat-icon>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
+        <mat-icon matSuffix class="pointer" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         <mat-error>
           {{ 'validator.errorMessage.required' | translate }}
         </mat-error>

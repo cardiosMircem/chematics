@@ -9,6 +9,9 @@ import { <%= classify(name) %>Service } from './<%= dasherize(name) %>.service';
   styleUrls: ['<%= dasherize(name) %>.component.scss']
 })
 export class <%= classify(name)%>Component implements OnInit {
+
+  hide = true;
+
   loginForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private <%= camelize(name) %>Service: <%= classify(name) %>Service) {}

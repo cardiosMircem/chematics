@@ -12,6 +12,9 @@ import { <%= classify(name) %>Service } from '../<%= dasherize(name) %>.service'
   styleUrls: ['<%= dasherize(name) %>-new-password.component.scss']
 })
 export class <%= classify(name) %>NewPasswordComponent implements OnInit, OnDestroy {
+
+  hide = true;
+
   get repeatedPasswordControl(): FormControl {
     return this.newPasswordFG.get('repeatedPassword') as FormControl;
   }
