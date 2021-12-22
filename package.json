@@ -1,12 +1,13 @@
 {
   "name": "@schematics/ms",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Util of handy schematics",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "build:watch": "tsc -p tsconfig.json --watch"
   },
-  "author": "",
+  "keywords": ["schematics", "ng", "ng generate", "login"],
+  "author": "Mirco Seccardi",
   "license": "MIT",
   "schematics": "./src/collection.json",
   "dependencies": {
@@ -21,5 +22,13 @@
     "@types/jasmine": "~3.5.0",
     "@types/node": "^12.11.1",
     "jasmine": "^3.5.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cardiosMircem/schematics-ms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cardiosMircem/schematics-ms/issues"
+  },
+  "homepage": "https://github.com/cardiosMircem/schematics-ms#readme"
 }
