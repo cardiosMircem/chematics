@@ -6,7 +6,12 @@
     "build": "tsc -p tsconfig.json",
     "build:watch": "tsc -p tsconfig.json --watch"
   },
-  "keywords": ["schematics", "ng", "ng generate", "login"],
+  "keywords": [
+    "schematics",
+    "ng",
+    "ng generate",
+    "login"
+  ],
   "author": "Mirco Seccardi",
   "license": "MIT",
   "schematics": "./src/collection.json",
