@@ -1,4 +1,4 @@
-# @schematics/ms
+# chematics
 
 ## Requirements
 
@@ -26,7 +26,7 @@ npm i -g @angular/cli
 When you have the `@angular/cli` installed then
 
 ```
-npm install @schematics/ms
+npm install chematics
 ```
 
 ## Utilization
@@ -34,7 +34,7 @@ npm install @schematics/ms
 This is very simple
 
 ```
-ng generate @schematics/ms:@login --path=<path to where you want the login boilerplate code>
+ng generate chematics:@login --path=<path to where you want the login boilerplate code>
 ```
 
 when you succeed the terminal have printed out something like
