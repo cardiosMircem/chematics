@@ -1,6 +1,6 @@
 {
   "name": "chematics",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Util of handy schematics",
   "scripts": {
     "build": "tsc -p tsconfig.json",
