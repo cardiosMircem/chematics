@@ -1,6 +1,6 @@
 {
   "name": "chematics",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Util of handy schematics",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -18,7 +18,7 @@
   "dependencies": {
     "@angular-devkit/core": "^11.0.7",
     "@angular-devkit/schematics": "^11.0.7",
-    "@angular-devkit/schematics-cli": "^0.900.0-rc.5",
+    "@angular-devkit/schematics-cli": "^0.901.15",
     "@schematics/angular": "^9.1.0",
     "schematics-utilities": "^2.0.2",
     "typescript": "~4.0.2"
