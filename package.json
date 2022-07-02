@@ -1,6 +1,6 @@
 {
   "name": "@cardiosmircem/schematics",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Util of handy schematics",
   "scripts": {
     "build": "tsc -p tsconfig.json",
