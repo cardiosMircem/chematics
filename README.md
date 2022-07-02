@@ -16,17 +16,17 @@ It provides a straigthforward generation of plain login in angular with all the 
 
 ## Installation
 
-Be sure to have globally installed the `@angular/cli` library otherwise there is no `ng generate` at your disposal :disappointed:.
-If not then
+> :warning: Be sure to have globally installed the `@angular/cli` not higher than version 12 otherwise it gives you the erro `NOT SUPPORTED: keyword "id", use "$id" for schema ID : TSLint ` :disappointed:.
+> If not then
 
 ```
-npm i -g @angular/cli
+npm i -g @angular/cli@12
 ```
 
-When you have the `@angular/cli` installed then
+When you have the `^@angular/cli@12` installed then
 
 ```
-npm install @cardiosMircem/schematics
+npm install @cardiosmircem/schematics
 ```
 
 ## Utilization
@@ -34,7 +34,7 @@ npm install @cardiosMircem/schematics
 This is very simple
 
 ```
-ng generate @cardiosMircem/schematics:@login --path=<path to where you want the login boilerplate code>
+ng generate @cardiosmircem/schematics:@login --path=<path to where you want the login boilerplate code>
 ```
 
 when you succeed the terminal have printed out something like
