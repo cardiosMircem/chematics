@@ -1,4 +1,4 @@
-# chematics
+# schematics
 
 ## Requirements
 
@@ -26,7 +26,7 @@ npm i -g @angular/cli
 When you have the `@angular/cli` installed then
 
 ```
-npm install chematics
+npm install @cardiosMircem/schematics
 ```
 
 ## Utilization
