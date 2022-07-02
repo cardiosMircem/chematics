@@ -34,7 +34,7 @@ npm install chematics
 This is very simple
 
 ```
-ng generate chematics:@login --path=<path to where you want the login boilerplate code>
+ng generate @cardiosMircem/schematics:@login --path=<path to where you want the login boilerplate code>
 ```
 
 when you succeed the terminal have printed out something like
